@@ -2,10 +2,50 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Онлайн-друг</title>
+    <title>F.R.I.E.N.D. v1.04</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <!-- Стартовый экран -->
+    <div id="startScreen" class="screen">
+        <div class="retro-window">
+            <div class="title-bar">F.R.I.E.N.D. - Установка</div>
+            <div class="window-content">
+                <p>Добро пожаловать в F.R.I.E.N.D. v1.04</p>
+                <p>Ваш персональный ИИ-помощник</p>
+                <br>
+                <button onclick="startGame()">Начать</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран "привязки аккаунта" -->
+    <div id="linkScreen" class="screen" style="display:none;">
+        <div class="retro-window">
+            <div class="title-bar">F.R.I.E.N.D. - Привязка аккаунта</div>
+            <div class="window-content">
+                <p id="linkMessage">Чтобы я мог тебя запомнить, привяжи свой аккаунт.</p>
+                <input type="text" id="emailInput" placeholder="Введите email или ник...">
+                <button onclick="linkAccount()">Привязать</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной экран чата -->
+    <div id="chatScreen" class="screen" style="display:none;">
+        <div class="retro-window">
+            <div class="title-bar">F.R.I.E.N.D. - Чат</div>
+            <div class="chat-box" id="chatBox"></div>
+            <div class="input-area">
+                <input type="text" id="userInput" placeholder="Введите сообщение..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Отправить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Контейнер для фейковых окон ошибок -->
+    <div id="errorContainer"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
